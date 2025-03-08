@@ -1,13 +1,15 @@
 "use client";
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useCallback, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../firebase';
 import './search.css';
 
-export default function SearchPage() {
+// This component will use searchParams
+function SearchContent() {
+  const searchParams = useSearchParams();
   const [searchQuery, setSearchQuery] = useState('');
   const [books, setBooks] = useState(null);
   const [filteredBooks, setFilteredBooks] = useState([]);
@@ -16,7 +18,6 @@ export default function SearchPage() {
   const [isHovering, setIsHovering] = useState(null);
   const searchCache = useRef(new Map());
   const router = useRouter();
-  const searchParams = useSearchParams();
 
   // Generate a unique key for URL parameters
   const generateUniqueKey = useCallback(() => {
@@ -306,5 +307,14 @@ export default function SearchPage() {
         )}
       </div>
     </div>
+  );
+}
+
+// Main page component that wraps the content in Suspense
+export default function SearchPage() {
+  return (
+    <Suspense fallback={<div className="loading-container"><div className="circular-loader"></div></div>}>
+      <SearchContent />
+    </Suspense>
   );
 }
