@@ -1,0 +1,136 @@
+.site-header {
+  width: 100%;
+  font-family: "IBM Plex Sans", sans-serif;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: rgba(9, 9, 9, 0.95);
+  padding: 15px 0;
+  transition: all 0.3s ease;
+}
+
+.site-header.scrolled {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  background-color: rgba(9, 9, 9, 0.98);
+  padding: 10px 0;
+}
+
+.header-container {
+  width: 90%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo styling */
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo-image {
+  width: 45px;
+  height: 45px;
+  transform: rotate(-8deg);
+  margin-right: 10px;
+  transition: transform 0.3s ease;
+}
+
+.logo-link:hover .logo-image {
+  transform: rotate(0deg);
+}
+
+.site-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+  letter-spacing: -0.5px;
+  transition: color 0.3s ease;
+}
+
+.logo-link:hover .site-title {
+  color: #f4c619;
+}
+
+/* Search button styling */
+.header-actions {
+  display: flex;
+  align-items: center;
+}
+
+.search-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: scale(1.05);
+}
+
+.search-button:active {
+  transform: scale(0.95);
+}
+
+.search-icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .site-header {
+    padding: 12px 0;
+  }
+
+  .site-header.scrolled {
+    padding: 8px 0;
+  }
+
+  .header-container {
+    width: 95%;
+  }
+
+  .logo-image {
+    width: 36px;
+    height: 36px;
+  }
+
+  .site-title {
+    font-size: 22px;
+  }
+
+  .search-icon {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-image {
+    width: 30px;
+    height: 30px;
+  }
+
+  .site-title {
+    font-size: 20px;
+  }
+}

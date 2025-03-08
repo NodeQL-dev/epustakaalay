@@ -1,0 +1,72 @@
+.loading-container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #090909;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+
+.loading-content {
+  text-align: center;
+  background-color: #090909;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 90%;
+  width: 400px;
+}
+
+.loading-content h2 {
+  font-size: 2.2rem;
+  margin: 1rem 0;
+  color: #f4c619;
+  font-weight: 600;
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.loading-content p {
+  color: #333;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.spinner {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 1.5rem;
+  border: 5px solid rgba(0, 102, 204, 0.2);
+  border-radius: 50%;
+  border-top-color: #f4c619;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Add responsive adjustments */
+@media (max-width: 768px) {
+  .loading-content {
+    padding: 1.5rem;
+    width: 85%;
+  }
+  
+  .loading-content h2 {
+    font-size: 1.8rem;
+  }
+  
+  .spinner {
+    width: 50px;
+    height: 50px;
+  }
+}
